@@ -2,7 +2,7 @@
 
 ## NAVIGATION
 
-[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout) | [Examples of Headers](#headers)
+[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout) | [Examples of Headers](#headers-examples)
 
 ## Project Outline
 
@@ -525,7 +525,7 @@ If you are not logged in the endpoint will return an HTTP response with a status
 
 ---
 
-## HEADERS OBJECT AND AXIOS CALL SAMPLES <a name="headers"></a>
+## HEADERS OBJECT AND AXIOS CALL SAMPLES <a name="headers-examples"></a>
 
 > When sending requests to an endpoint requiring authorization, headers bearing the JSON Web Token must be present as seen in the 2 examples below
 
