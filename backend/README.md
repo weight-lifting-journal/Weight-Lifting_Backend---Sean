@@ -564,7 +564,7 @@ axios.post(`https://${API_URL}/workouts`, userObj)
 
 > alternate axios call syntax below may also be used
 
-### AUTHORIZATION GET AXIOS EXAMPLE 2
+### AUTHORIZED GET AXIOS EXAMPLE 2
 
 ```
 axios({
