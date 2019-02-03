@@ -582,7 +582,7 @@ axios({
 
 ```
 axios({
-  method: "get",
+  method: "post",
   url: `https://${API_URL}/workouts`,
   headers: {
     Authorization: token
