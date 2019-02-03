@@ -2,7 +2,7 @@
 
 ## NAVIGATION
 
-[Register User](#)
+[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout)
 
 ## Project Outline
 
@@ -75,7 +75,7 @@ _example:_
 
 ---
 
-## LOGIN
+## LOGIN <a name="login"></a>
 
 ### Logs a user in
 
@@ -148,7 +148,7 @@ _example:_
 
 # WORKOUT ROUTES
 
-## GET WORKOUTS
+## GET WORKOUTS <a name="get-workouts"></a>
 
 ### Retrieves an array of users workouts
 
@@ -218,7 +218,7 @@ _HTTP method: [GET]_
 
 ---
 
-## GET SPECIFIC WORKOUT
+## GET SPECIFIC WORKOUT <a name="get-single-workout"></a>
 
 ### Gets a workout with a specified ID
 
@@ -282,7 +282,7 @@ _HTTP method: [GET]_
 
 ---
 
-## POST A WORKOUT
+## POST A WORKOUT <a name="add-workout"></a>
 
 ### Adds a new workout
 
@@ -367,7 +367,7 @@ _example:_
 
 ---
 
-## EDIT SPECIFIC WORKOUT
+## EDIT SPECIFIC WORKOUT <a name="edit-workout"></a>
 
 ### Edits one or more details of a specific workout created by the user.
 
@@ -470,7 +470,7 @@ _HTTP method: [PUT]_
 
 ---
 
-## DELETE WORKOUT
+## DELETE WORKOUT <a name="delete-workout"></a>
 
 ### Deletes workout with specific id.
 
