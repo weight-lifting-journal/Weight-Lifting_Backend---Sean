@@ -155,6 +155,12 @@ _Method URL: /workouts_
 
 _HTTP method: [GET]_
 
+### Headers
+
+| name          | type   | required | description |
+| ------------- | ------ | -------- | ----------- |
+| Authorization | String | Yes      | token       |
+
 ### Response
 
 **200 (OK)**
