@@ -2,7 +2,7 @@
 
 ## NAVIGATION
 
-[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout)
+[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout) | [Examples of Headers](#headers)
 
 ## Project Outline
 
@@ -521,4 +521,78 @@ If you are not logged in the endpoint will return an HTTP response with a status
   "error": true,
   "message": "The requested content does not exist."
 }
+```
+
+---
+
+## HEADERS OBJECT AND AXIOS CALL SAMPLES <a name="headers"></a>
+
+> When sending requests to an endpoint requiring authorization, headers bearing the JSON Web Token must be present as seen in the 2 examples below
+
+### AUTHORIZED GET AXIOS EXAMPLE
+
+```
+const headersObj = {
+  headers: {
+    Authorization: JWT_token
+  }
+}
+
+axios.get(`https://${API_URL}/workouts`, headersObj)
+  .then(({data}) => this.setState({workouts: data}))
+  .catch(err => console.log("error", err))
+```
+
+### AUTHORIZED POST AXIOS EXAMPLE
+
+```
+const userObj = {
+  headers: {
+    Authorization: JWT_token
+  },
+  body: {
+    username: "john doe",
+    email: "johndoe@email.com",
+    password: "password123"
+  }
+}
+
+axios.post(`https://${API_URL}/workouts`, userObj)
+  .then((res) => console.log(res))
+  .catch(err => console.log("error", err))
+```
+
+> alternate axios call syntax below may also be used
+
+### AUTHORIZATION GET AXIOS EXAMPLE 2
+
+```
+axios({
+  method: "get",
+  url: `https://${API_URL}/workouts`,
+  headers: {
+    Authorization: token
+  }
+})
+  .then(({data}) => this.setState({workouts: data}))
+  .catch(err => console.log("error", err))
+```
+
+### AUTHORIZED POST AXIOS EXAMPLE 2
+
+```
+axios({
+  method: "get",
+  url: `https://${API_URL}/workouts`,
+  headers: {
+    Authorization: token
+  },
+  body: {
+    username: "john doe",
+    email: "johndoe@email.com",
+    password: "password123"
+  }
+})
+  .then((res) => console.log(res))
+  .catch(err => console.log("error", err))
 ```
