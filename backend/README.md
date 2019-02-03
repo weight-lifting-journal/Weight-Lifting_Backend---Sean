@@ -117,7 +117,6 @@ _example:_
   "user": {
     "id": 1,
     "username": "john doe",
-    "img_url": "https://i.ytimg.com/vi/YCaGYUIfdy4/maxresdefault.jpg"
   }
 }
 ```
