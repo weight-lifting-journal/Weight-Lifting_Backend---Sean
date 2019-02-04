@@ -9,8 +9,8 @@ module.exports = {
       .where({ username })
       .first();
   },
-  findWorkouts: userId => {
-    return db("journal").where({ userId });
+  findWorkouts: () => {
+    return db("journal");
   },
   findSingleWorkout: workoutId => {
     return db("journal").where({ workoutId });
