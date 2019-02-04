@@ -11,7 +11,7 @@ router.post("/register", (req, res, next) => {
   const user = req.body;
   user.password = bcrypt.hashSync(user.password, 12);
   db.insert(user)
-    .then(res => {
+    .then(userId => {
       const token = auth.generateToken(req.body);
       res.status(201).json({ message: `welcome ${user.username}`, token });
     })

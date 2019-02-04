@@ -2,17 +2,17 @@ const db = require("./configKnex");
 
 module.exports = {
   insert: user => {
-    db("users").insert(user);
+    return db("users").insert(user);
   },
   findUsername: username => {
-    db("users")
+    return db("users")
       .where({ username })
       .first();
   },
   findWorkouts: userId => {
-    db("journal").where({ userId });
+    return db("journal").where({ userId });
   },
   findSingleWorkout: workoutId => {
-    db("journal").where({ workoutId });
+    return db("journal").where({ workoutId });
   }
 };
