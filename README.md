@@ -14,6 +14,10 @@
 
 ---
 
+# Base URL
+
+- https://weightliftingjournallambda.herokuapp.com
+
 ## REGISTER <a name="register"></a>
 
 ### Register a User
