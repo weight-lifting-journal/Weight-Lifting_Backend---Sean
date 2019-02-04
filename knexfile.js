@@ -20,6 +20,8 @@ module.exports = {
   },
   production: {
     client: "sqlite3",
-    connection: "./backend/data/users-test.db3"
+    connection: {
+      filename: "./backend/data/users-test.db3"
+    }
   }
 };
