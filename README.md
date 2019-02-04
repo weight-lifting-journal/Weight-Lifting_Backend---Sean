@@ -52,9 +52,9 @@ _example:_
 
 ### Response
 
-**200 (OK)**
+**201 (OK)**
 
-> If you successfully register a user the endpoint will return an HTTP response with a status code 200 and a body as below.
+> If you successfully register a user the endpoint will return an HTTP response with a status code 201 and a body as below.
 
 ```
 {
@@ -181,8 +181,8 @@ _HTTP method: [GET]_
     },
     "exercises": [
       {
-        "exerciseId": 1,
-        "journalId" : 1,
+      "exerciseId": 1,
+      "journalId" : 1,
       "name": "bench press",
       "weight": "200lb",
       "reps": 5,
@@ -206,8 +206,8 @@ _HTTP method: [GET]_
     },
     "exercises": [
       {
-        "exerciseId": 3,
-        "journalId" : 2,
+      "exerciseId": 3,
+      "journalId" : 2,
       "name": "leg press",
       "weight": "280lb",
       "reps": 7,

@@ -4,9 +4,9 @@ module.exports = {
   insert: user => {
     return db("users").insert(user);
   },
-  findUsername: username => {
+  findUsername: email => {
     return db("users")
-      .where({ username })
+      .where({ email })
       .first();
   },
   findWorkouts: () => {

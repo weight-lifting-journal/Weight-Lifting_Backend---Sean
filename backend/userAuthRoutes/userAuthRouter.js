@@ -27,7 +27,7 @@ router.post("/register", (req, res, next) => {
 // LOGIN USER
 router.post("/login", (req, res, next) => {
   const userCreds = req.body;
-  db.findUsername(userCreds.username)
+  db.findUsername(userCreds.email)
     .then(user => {
       if (user && bcrypt.compareSync(userCreds.password, user.password)) {
         const token = auth.generateToken(req.body);
@@ -40,4 +40,3 @@ router.post("/login", (req, res, next) => {
 });
 
 module.exports = router;
-// test
