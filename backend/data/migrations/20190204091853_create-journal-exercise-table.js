@@ -12,6 +12,9 @@ exports.up = function(knex, Promise) {
       .unsigned()
       .references("id")
       .inTable("exercise");
+    tbl.integer("reps").notNullable();
+    tbl.integer("sets").notNullable();
+    tbl.string("weight", 150).notNullable();
   });
 };
 

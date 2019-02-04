@@ -6,18 +6,18 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex("journal").insert([
         {
-          id: 1,
+          userId: 1,
           date: "Feb 12, 2019",
           region: "upper body"
         },
         {
-          id: 2,
+          userId: 2,
           date: "Feb 12, 2019",
           region: "upper body"
         },
         {
-          id: 3,
-          date: "Feb 13, 2019",
+          userId: 3,
+          date: "Feb 12, 2019",
           region: "upper body"
         }
       ]);

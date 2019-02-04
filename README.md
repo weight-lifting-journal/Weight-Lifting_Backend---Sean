@@ -59,10 +59,7 @@ _example:_
 ```
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ0MzM1NjUxLCJleHAiOjE1NzU4OTMyNTF9.uqd2OHBYkGQpwjLTPPiPWYkYOKlG7whQDFkk46xGXoE",
-  "user": {
-    "id": 1,
-    "username": "john doe"
-  }
+  "message": "welcome john doe"
 }
 ```
 
@@ -118,10 +115,7 @@ _example:_
 ```
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ0MzM1NjUxLCJleHAiOjE1NzU4OTMyNTF9.uqd2OHBYkGQpwjLTPPiPWYkYOKlG7whQDFkk46xGXoE",
-  "user": {
-    "id": 1,
-    "username": "john doe",
-  }
+  "message": "welcome john doe"
 }
 ```
 
