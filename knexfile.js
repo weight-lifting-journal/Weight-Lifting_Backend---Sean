@@ -19,7 +19,7 @@ module.exports = {
     connection: "./backend/data/users-test.db3"
   },
   production: {
-    client: "pg",
-    connection: process.env.DATABASE_URL
+    client: "sqlite3",
+    connection: "./backend/data/users-test.db3"
   }
 };
