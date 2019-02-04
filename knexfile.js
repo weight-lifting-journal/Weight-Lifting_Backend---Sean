@@ -6,6 +6,7 @@ module.exports = {
     connection: {
       filename: "./backend/data/users.db3"
     },
+    useNullAdDefault: true,
     migrations: {
       directory: "./backend/data/migrations"
     },
@@ -13,36 +14,12 @@ module.exports = {
       directory: "./backend/data/seeds"
     }
   },
-
-  staging: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
-    }
+  test: {
+    client: "sqlite3",
+    connection: "./backend/data/users-test.db3"
   },
-
   production: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
-    }
+    client: "pg",
+    connection: process.env.DATABASE_URL
   }
 };

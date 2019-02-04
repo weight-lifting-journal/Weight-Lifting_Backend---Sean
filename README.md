@@ -2,7 +2,7 @@
 
 ## NAVIGATION
 
-[Register User](#register) | [Login](#login) | [Get All Workouts](#get-workouts) | [Get Single Workout](#get-single-workout) | [Add A Workout](#add-workout) | [Edit A Workout](#edit-workout) | [Delete A Workout](#delete-workout) | [Examples of Headers](#headers-examples)
+[Register User](#register) | [Login](#login) | [Get All Workout Journals](#get-workouts) | [Get Single Workout Journal](#get-single-workout) | [Add A Workout Journal](#add-workout) | [Edit A Workout Journal](#edit-workout) | [Delete A Workout Journal](#delete-workout) | [Get an Exercise Card](#get-exercise) | [Add an Exercise Card](#add-exercise) | [Edit an Exercise Card](#edit-exercise) | [Delete an Exercise Card](#delete-exercise) | [Examples of Headers](#headers-examples) | [Project Reference Links](#ref-links)
 
 ## Project Outline
 
@@ -18,7 +18,7 @@
 
 ### Register a User
 
-_Method URL: /register_
+_Method URL: /users/register_
 
 _HTTP method: [POST]_
 
@@ -79,7 +79,7 @@ _example:_
 
 ### Logs a user in
 
-_Method Url: /login_
+_Method Url: /users/login_
 
 _HTTP method: [POST]_
 
@@ -145,9 +145,9 @@ _example:_
 
 ---
 
-# WORKOUT ROUTES
+# WORKOUT JOURNAL ROUTES
 
-## GET WORKOUTS <a name="get-workouts"></a>
+## GET WORKOUT JOURNALS <a name="get-workouts"></a>
 
 ### Retrieves an array of users workouts
 
@@ -173,23 +173,24 @@ _HTTP method: [GET]_
     "id": 1,
     "workout": {
       "date": "Feb 12, 2019",
-      "weekday": "Tue",
-      "time": "08:30pm"
+      "region": "Upper Body"
     },
     "exercises": [
       {
+        "exerciseId": 1,
+        "workoutId" : 1,
       "name": "bench press",
       "weight": "200lb",
       "reps": 5,
       "sets": 3,
-      "region": "chest"
     },
     {
+      "exerciseId": 2,
+      "workoutId" : 1,
       "name": "curls",
       "weight": "60lb",
       "reps": 10,
       "sets": 3,
-      "region": "arms"
     }
     ]
   },
@@ -197,24 +198,24 @@ _HTTP method: [GET]_
     "id": 2,
     "workout": {
       "date": "Feb 13, 2019",
-      "weekday": "Wed",
-      "time": "08:30pm"
+      "region": "legs"
     },
     "exercises": [
       {
+        "exerciseId": 3,
+        "workoutId" : 2,
       "name": "leg press",
       "weight": "280lb",
       "reps": 7,
       "sets": 3,
-      "region": "legs"
     },
     {
-
+      "exerciseId": 4,
+      "workoutId" : 2,
       "name": "squats",
       "weight": "180lb",
       "reps": 12,
       "sets": 3,
-      "region": "legs"
     }
     ]
   }
@@ -223,9 +224,9 @@ _HTTP method: [GET]_
 
 ---
 
-## GET SPECIFIC WORKOUT <a name="get-single-workout"></a>
+## GET SPECIFIC WORKOUT JOURNAL <a name="get-single-workout"></a>
 
-### Gets a workout with a specified ID
+### Gets a workout journal with a specified ID
 
 _Method Url: /workouts/:workoutId_
 
@@ -255,23 +256,24 @@ _HTTP method: [GET]_
  {
     "id": 1,
     "date": "Feb 12, 2019",
-    "weekday": "Tue",
-    "time": "08:30pm",
+    "region": "upper body",
     "exercises": [
       {
-      "name": "bench press",
-      "weight": "200lb",
-      "reps": 5,
-      "sets": 3,
-      "region": "chest"
-    },
-    {
-      "name": "curls",
-      "weight": "60lb",
-      "reps": 10,
-      "sets": 3,
-      "region": "arms"
-    }
+        "exerciseId": 1,
+        "workoutId": 1,
+        "name": "bench press",
+        "weight": "200lb",
+        "reps": 5,
+        "sets": 3,
+     },
+      {
+        "exerciseId": 2,
+        "workoutId": 1,
+        "name": "curls",
+        "weight": "60lb",
+        "reps": 10,
+        "sets": 3,
+      }
     ]
   }
 ```
@@ -287,9 +289,9 @@ _HTTP method: [GET]_
 
 ---
 
-## POST A WORKOUT <a name="add-workout"></a>
+## POST A WORKOUT JOURNAL <a name="add-workout"></a>
 
-### Adds a new workout
+### Adds a new workout journal
 
 _Method Url: /workouts_
 
@@ -303,36 +305,17 @@ _HTTP method: [POST]_
 
 ### Body
 
-| name      | type   | required | description             |
-| --------- | ------ | -------- | ----------------------- |
-| date      | String | Yes      |                         |
-| weekday   | String | No       |                         |
-| time      | String | No       |                         |
-| exercises | Array  | yes      | arr of exercise objects |
+| name   | type   | required | description    |
+| ------ | ------ | -------- | -------------- |
+| date   | String | Yes      | string of nums |
+| region | String | Yes      |                |
 
 _example:_
 
 ```
 {
   date: "Feb 2 2019",
-  weekday: "Sat",
-  time: "10:30 pm",
-  "exercises": [
-      {
-      "name": "bench press",
-      "weight": "200lb",
-      "reps": 5,
-      "sets": 3,
-      "region": "chest"
-    },
-    {
-      "name": "curls",
-      "weight": "60lb",
-      "reps": 10,
-      "sets": 3,
-      "region": "arms"
-    }
-    ]
+  region: "upper body"
 }
 ```
 
@@ -372,9 +355,9 @@ _example:_
 
 ---
 
-## EDIT SPECIFIC WORKOUT <a name="edit-workout"></a>
+## EDIT SPECIFIC WORKOUT JOURNAL <a name="edit-workout"></a>
 
-### Edits one or more details of a specific workout created by the user.
+### Edits one or more details of a specific workout journal created by the user.
 
 _Method Url: /workouts/:workoutId/update_
 
@@ -395,36 +378,18 @@ _HTTP method: [PUT]_
 
 ### Body
 
-| name      | type   | required | description             |
-| --------- | ------ | -------- | ----------------------- |
-| date      | String | No       | New date of workout     |
-| weekday   | String | No       | New date of workout     |
-| time      | String | No       | New date of workout     |
-| exercises | Array  | No       | arr of exercise objects |
+| name   | type   | required | description         |
+| ------ | ------ | -------- | ------------------- |
+| date   | String | No       | New date of workout |
+| region | String | No       | New region workout  |
 
 **example:**
 
 ```
 {
+  "workoutId": 2,
   date: "Feb 2 2019",
-  weekday: "Sat",
-  time: "10:30 pm",
-  "exercises": [
-      {
-      "name": "bench press",
-      "weight": "200lb",
-      "reps": 5,
-      "sets": 3,
-      "region": "chest"
-    },
-    {
-      "name": "curls",
-      "weight": "60lb",
-      "reps": 10,
-      "sets": 3,
-      "region": "arms"
-    }
-    ]
+  region: "legs",
 }
 ```
 
@@ -475,9 +440,9 @@ _HTTP method: [PUT]_
 
 ---
 
-## DELETE WORKOUT <a name="delete-workout"></a>
+## DELETE WORKOUT JOURNAL <a name="delete-workout"></a>
 
-### Deletes workout with specific id.
+### Deletes workout journal with specific id.
 
 _Method Url: /workouts/:workoutId_
 
@@ -494,6 +459,274 @@ _HTTP method: [DELETE]_
 | name      | type | required | description            |
 | --------- | ---- | -------- | ---------------------- |
 | workoutId | Int  | Yes      | Id of specific workout |
+
+### Response
+
+**200 (OK)**
+
+> If the request is successful, the server will return an HTTP response with a status code 200 and the following message.
+
+```
+{
+    "message": "Workout successfully deleted."
+}
+```
+
+**401 (Unauthorized)**
+
+If you are not logged in the endpoint will return an HTTP response with a status code 401 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "You are unauthorized to view the content."
+}
+```
+
+**404 (Not Found)**
+
+> If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "The requested content does not exist."
+}
+```
+
+---
+
+## GET SPECIFIC EXERCISE CARD <a name="get-exercise"></a>
+
+### Gets a exercise card with a specified ID
+
+_Method Url: /workouts/exercises/:exerciseId_
+
+_HTTP method: [GET]_
+
+### Headers
+
+| name          | type   | required | description |
+| ------------- | ------ | -------- | ----------- |
+| Authorization | String | Yes      | token       |
+
+|
+
+### Parameters
+
+| name       | type | required | description            |
+| ---------- | ---- | -------- | ---------------------- |
+| exerciseId | Int  | Yes      | Id of specific workout |
+
+### Response
+
+**200 (OK)**
+
+> If you send a valid workout id with a valid authorization token, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+      {
+        "exerciseId": 1,
+        "workoutId": 1,
+        "name": "bench press",
+        "weight": "200lb",
+        "reps": 5,
+        "sets": 3,
+     }
+```
+
+**404 (Not Found)**
+
+> If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
+
+{
+"error": true,
+"message": "The requested content does not exist."
+}
+
+---
+
+## POST AN EXERCISE CARD <a name="add-exercise"></a>
+
+### Adds a new exercise card
+
+_Method Url: /workouts/exercises_
+
+_HTTP method: [POST]_
+
+### Headers
+
+| name          | type   | required | description |
+| ------------- | ------ | -------- | ----------- |
+| Authorization | String | Yes      | token       |
+
+### Body
+
+| name      | type   | required | description |
+| --------- | ------ | -------- | ----------- |
+| workoutId | Int    | Yes      |             |
+| name      | String | Yes      |             |
+| reps      | Int    | Yes      |             |
+| sets      | Int    | Yes      |             |
+| weight    | String | Yes      |             |
+
+_example:_
+
+```
+{
+  workoutId: 1,
+  name: "curls",
+  reps: 10,
+  sets: 3,
+  weight: "75lbs"
+}
+```
+
+### Response
+
+**200 (OK)**
+
+> If you successfully create a new workout the endpoint will return an HTTP response with a status code 200 and a body containing the newly created workouts id as shown below.
+
+```
+[
+  12
+]
+```
+
+**400 (Bad Request)**
+
+> If you send in invalid fields, the endpoint will return an HTTP response with a status code 400 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "There was a problem with your request."
+}
+```
+
+**401 (Unauthorized)**
+
+> If you are not logged in, then endpoint will return an HTTP response with a status code 401 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "You are unauthorized to view the content."
+}
+```
+
+---
+
+## EDIT SPECIFIC EXERCISE CARD <a name="edit-exercise"></a>
+
+### Edits one or more details of a specific exercise card created by the user.
+
+_Method Url: /workouts/exercises/:exerciseId_
+
+_HTTP method: [PUT]_
+
+### Headers
+
+| name          | type   | required | description              |
+| ------------- | ------ | -------- | ------------------------ |
+| Content-Type  | String | Yes      | Must be application/json |
+| Authorization | String | Yes      | token                    |
+
+### Parameters
+
+| name       | type | required | description            |
+| ---------- | ---- | -------- | ---------------------- |
+| exerciseId | Int  | Yes      | Id of specific workout |
+
+### Body
+
+| name      | type   | required | description |
+| --------- | ------ | -------- | ----------- |
+| workoutId | Int    | Yes      |             |
+| name      | String | Yes      |             |
+| reps      | Int    | Yes      |             |
+| sets      | Int    | Yes      |             |
+| weight    | String | Yes      |             |
+
+_example:_
+
+```
+{
+  workoutId: 1,
+  name: "curls",
+  reps: 10,
+  sets: 3,
+  weight: "75lbs"
+}
+```
+
+### Response
+
+**200 (OK)**
+
+> If the request is successful, the server will return an HTTP response with a status code 200 and the id of the updated workout.
+
+```
+[
+  12
+]
+```
+
+**400 (Bad Request)**
+
+> If you send in invalid fields, the endpoint will return an HTTP response with a status code 400 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "There was a problem with your request."
+}
+```
+
+**401 (Unauthorized)**
+
+> If you are not logged in the endpoint will return an HTTP response with a status code 401 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "You are unauthorized to view the content."
+}
+```
+
+**404 (Not Found)**
+
+> If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
+
+```
+{
+  "error": true,
+  "message": "The requested content does not exist."
+}
+```
+
+---
+
+## DELETE EXERCISE CARD <a name="delete-exercise"></a>
+
+### Deletes workout journal with specific id.
+
+_Method Url: /workouts/exercises/:exerciseId_
+
+_HTTP method: [DELETE]_
+
+### Headers
+
+| name          | type   | required | description |
+| ------------- | ------ | -------- | ----------- |
+| Authorization | String | Yes      | token       |
+
+### Parameters
+
+| name       | type | required | description             |
+| ---------- | ---- | -------- | ----------------------- |
+| exerciseId | Int  | Yes      | Id of specific exercise |
 
 ### Response
 
@@ -602,3 +835,11 @@ axios({
   .then((res) => console.log(res))
   .catch(err => console.log("error", err))
 ```
+
+---
+
+### PROJECT REFERENCE LINKS <a name="ref-links"></a>
+
+[Rubric](https://docs.google.com/spreadsheets/d/1sFgvt8HtqNCw32YC8Wvrgrdb61oEWPTsBUrvOL3rAGQ/edit#gid=0)
+[Policies and Procedures](https://www.notion.so/Policies-and-Procedures-19e679fc1a284b668d8132dd8d7228cd)
+[Monday.coms Board](https://lambdaschool.monday.com/boards/165411499)
