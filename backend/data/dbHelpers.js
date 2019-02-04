@@ -10,9 +10,9 @@ module.exports = {
       .first();
   },
   findWorkouts: userId => {
-    db("workouts").where({ userId });
+    db("journal").where({ userId });
   },
   findSingleWorkout: workoutId => {
-    db("workouts").where({ workoutId });
+    db("journal").where({ workoutId });
   }
 };

@@ -178,7 +178,7 @@ _HTTP method: [GET]_
     "exercises": [
       {
         "exerciseId": 1,
-        "workoutId" : 1,
+        "journalId" : 1,
       "name": "bench press",
       "weight": "200lb",
       "reps": 5,
@@ -186,7 +186,7 @@ _HTTP method: [GET]_
     },
     {
       "exerciseId": 2,
-      "workoutId" : 1,
+      "journalId" : 1,
       "name": "curls",
       "weight": "60lb",
       "reps": 10,
@@ -203,7 +203,7 @@ _HTTP method: [GET]_
     "exercises": [
       {
         "exerciseId": 3,
-        "workoutId" : 2,
+        "journalId" : 2,
       "name": "leg press",
       "weight": "280lb",
       "reps": 7,
@@ -211,7 +211,7 @@ _HTTP method: [GET]_
     },
     {
       "exerciseId": 4,
-      "workoutId" : 2,
+      "journalId" : 2,
       "name": "squats",
       "weight": "180lb",
       "reps": 12,
@@ -228,7 +228,7 @@ _HTTP method: [GET]_
 
 ### Gets a workout journal with a specified ID
 
-_Method Url: /workouts/:workoutId_
+_Method Url: /workouts/:journalId_
 
 _HTTP method: [GET]_
 
@@ -244,7 +244,7 @@ _HTTP method: [GET]_
 
 | name      | type | required | description            |
 | --------- | ---- | -------- | ---------------------- |
-| workoutId | Int  | Yes      | Id of specific workout |
+| journalId | Int  | Yes      | Id of specific workout |
 
 ### Response
 
@@ -260,7 +260,7 @@ _HTTP method: [GET]_
     "exercises": [
       {
         "exerciseId": 1,
-        "workoutId": 1,
+        "journalId": 1,
         "name": "bench press",
         "weight": "200lb",
         "reps": 5,
@@ -268,7 +268,7 @@ _HTTP method: [GET]_
      },
       {
         "exerciseId": 2,
-        "workoutId": 1,
+        "journalId": 1,
         "name": "curls",
         "weight": "60lb",
         "reps": 10,
@@ -359,7 +359,7 @@ _example:_
 
 ### Edits one or more details of a specific workout journal created by the user.
 
-_Method Url: /workouts/:workoutId/update_
+_Method Url: /workouts/:journalId/update_
 
 _HTTP method: [PUT]_
 
@@ -374,7 +374,7 @@ _HTTP method: [PUT]_
 
 | name      | type | required | description            |
 | --------- | ---- | -------- | ---------------------- |
-| workoutId | Int  | Yes      | Id of specific workout |
+| journalId | Int  | Yes      | Id of specific workout |
 
 ### Body
 
@@ -387,7 +387,7 @@ _HTTP method: [PUT]_
 
 ```
 {
-  "workoutId": 2,
+  "journalId": 2,
   date: "Feb 2 2019",
   region: "legs",
 }
@@ -444,7 +444,7 @@ _HTTP method: [PUT]_
 
 ### Deletes workout journal with specific id.
 
-_Method Url: /workouts/:workoutId_
+_Method Url: /workouts/:journalId_
 
 _HTTP method: [DELETE]_
 
@@ -458,7 +458,7 @@ _HTTP method: [DELETE]_
 
 | name      | type | required | description            |
 | --------- | ---- | -------- | ---------------------- |
-| workoutId | Int  | Yes      | Id of specific workout |
+| journalId | Int  | Yes      | Id of specific workout |
 
 ### Response
 
@@ -527,7 +527,7 @@ _HTTP method: [GET]_
 ```
       {
         "exerciseId": 1,
-        "workoutId": 1,
+        "journalId": 1,
         "name": "bench press",
         "weight": "200lb",
         "reps": 5,
@@ -564,7 +564,7 @@ _HTTP method: [POST]_
 
 | name      | type   | required | description |
 | --------- | ------ | -------- | ----------- |
-| workoutId | Int    | Yes      |             |
+| journalId | Int    | Yes      |             |
 | name      | String | Yes      |             |
 | reps      | Int    | Yes      |             |
 | sets      | Int    | Yes      |             |
@@ -574,7 +574,7 @@ _example:_
 
 ```
 {
-  workoutId: 1,
+  journalId: 1,
   name: "curls",
   reps: 10,
   sets: 3,
@@ -643,7 +643,7 @@ _HTTP method: [PUT]_
 
 | name      | type   | required | description |
 | --------- | ------ | -------- | ----------- |
-| workoutId | Int    | Yes      |             |
+| journalId | Int    | Yes      |             |
 | name      | String | Yes      |             |
 | reps      | Int    | Yes      |             |
 | sets      | Int    | Yes      |             |
@@ -653,7 +653,7 @@ _example:_
 
 ```
 {
-  workoutId: 1,
+  journalId: 1,
   name: "curls",
   reps: 10,
   sets: 3,

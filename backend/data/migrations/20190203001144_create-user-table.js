@@ -6,10 +6,10 @@ exports.up = function(knex, Promise) {
       .string("username", 255)
       .unique()
       .notNullable();
-    user /
-      string("email", 255)
-        .unique()
-        .notNullable();
+    user
+      .string("email", 255)
+      .unique()
+      .notNullable();
     user.string("password", 255).notNullable();
   });
 };
