@@ -44,16 +44,15 @@ router.put("/:journalId", auth.protected, async (req, res) => {
   const { journalId } = req.params;
   const newJournal = req.body;
   await dbHelper
-    .findSingleWorkoutJournal(journalId, req.decodedToken.sub, newJournal)
+    .updateSingleWorkoutJournal(journalId, req.decodedToken.sub, newJournal)
     .then(num => res.json(num));
 });
 
 // DELETE SINGLE JOURNAL
-router.put("/:journalId", auth.protected, async (req, res) => {
+router.delete("/:journalId", auth.protected, async (req, res) => {
   const { journalId } = req.params;
-  const newJournal = req.body;
   await dbHelper
-    .findSingleWorkoutJournal(journalId, req.decodedToken.sub, newJournal)
+    .deleteSingleWorkoutJournal(journalId, req.decodedToken.sub)
     .then(num => res.json(num));
 });
 
