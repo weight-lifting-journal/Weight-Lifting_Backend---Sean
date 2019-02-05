@@ -67,4 +67,17 @@ router.put("/:journalId/exercises/:id", auth.protected, (req, res, next) => {
     .catch(err => next(err));
 });
 
+// DELETE AN EXERCISE CARD
+router.delete("/:journalId/exercises/:id", auth.protected, (req, res, next) => {
+  const { sub } = req.decodedToken;
+  const { journalId, id } = req.params;
+  db("exercise")
+    .where("exercise.journalId", journalId)
+    .where("exercise.id", id)
+    .where("exercise.userId", sub)
+    .del()
+    .then(num => res.json(num))
+    .catch(err => next(err));
+});
+
 module.exports = router;
