@@ -29,6 +29,7 @@ router.get("/:journalId/exercises", auth.protected, (req, res, next) => {
   const { journalId } = req.params;
   db("exercise")
     .where("exercise.journalId", journalId)
+    .where("exercise.userId", sub)
     // .findJournalExercises(sub)
     .then(exercises => {
       console.log(exercises);
