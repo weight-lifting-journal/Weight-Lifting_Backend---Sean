@@ -4,7 +4,7 @@ const errorHandlers = require("../middleware/errorHandlers");
 
 const userRouter = require("../userAuthRoutes/userAuthRouter");
 const journalRouter = require("../journalRoutes/journalRouter");
-// const exerciseRouter = require("../exerciseRoutes/exerciseRouter");
+const exerciseRouter = require("../exerciseRoutes/exerciseRouter");
 
 const server = express();
 
@@ -17,7 +17,7 @@ server.get("/", (req, res) => {
 
 server.use("/users", userRouter);
 server.use("/workouts", journalRouter);
-// server.use("/workouts/exercises", exerciseRouter);
+server.use("/workouts", exerciseRouter);
 server.use(errorHandlers.notFound);
 server.use(errorHandlers.errorHandler);
 

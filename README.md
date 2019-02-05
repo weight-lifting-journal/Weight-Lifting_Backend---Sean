@@ -357,7 +357,7 @@ _example:_
 
 ### Edits one or more details of a specific workout journal created by the user.
 
-_Method Url: /workouts/:journalId/update_
+_Method Url: /workouts/:journalId_
 
 _HTTP method: [PUT]_
 
@@ -498,7 +498,7 @@ If you are not logged in the endpoint will return an HTTP response with a status
 
 ### Gets a exercise card with a specified ID
 
-_Method Url: /workouts/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:exerciseId_
 
 _HTTP method: [GET]_
 
@@ -548,7 +548,7 @@ _HTTP method: [GET]_
 
 ### Adds a new exercise card
 
-_Method Url: /workouts/exercises_
+_Method Url: /workouts/:journalId/exercises_
 
 _HTTP method: [POST]_
 
@@ -620,7 +620,7 @@ _example:_
 
 ### Edits one or more details of a specific exercise card created by the user.
 
-_Method Url: /workouts/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:exerciseId_
 
 _HTTP method: [PUT]_
 
@@ -710,7 +710,7 @@ _example:_
 
 ### Deletes workout journal with specific id.
 
-_Method Url: /workouts/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:exerciseId_
 
 _HTTP method: [DELETE]_
 
