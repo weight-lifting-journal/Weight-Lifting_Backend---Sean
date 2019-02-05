@@ -168,33 +168,33 @@ _HTTP method: [GET]_
 ```
 [
   {
-    "id": 1,
-    "workout": {
+    "journal": {
+      "id": 1,
       "date": "Feb 12, 2019",
       "region": "Upper Body"
     },
     "exercises": [
       {
-      "exerciseId": 1,
-      "journalId" : 1,
-      "name": "bench press",
-      "weight": "200lb",
-      "reps": 5,
-      "sets": 3,
-    },
-    {
-      "exerciseId": 2,
-      "journalId" : 1,
-      "name": "curls",
-      "weight": "60lb",
-      "reps": 10,
-      "sets": 3,
-    }
+        "exerciseId": 1,
+        "journalId" : 1,
+        "name": "bench press",
+        "weight": "200lb",
+        "reps": 5,
+        "sets": 3,
+      },
+      {
+        "exerciseId": 2,
+        "journalId" : 1,
+        "name": "curls",
+        "weight": "60lb",
+        "reps": 10,
+        "sets": 3,
+      }
     ]
   },
   {
-    "id": 2,
-    "workout": {
+    "journal": {
+      "id": 2,
       "date": "Feb 13, 2019",
       "region": "legs"
     },

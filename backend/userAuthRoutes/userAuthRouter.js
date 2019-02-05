@@ -12,7 +12,7 @@ router.post("/register", (req, res, next) => {
   user.password = bcrypt.hashSync(user.password, 12);
   db.insert(user)
     .then(userId => {
-      const token = auth.generateToken(req.body);
+      const token = auth.generateToken({ id: userId, ...req.body });
       res.status(201).json({ message: `welcome ${user.username}`, token });
     })
     .catch(err => {
@@ -30,7 +30,7 @@ router.post("/login", (req, res, next) => {
   db.findUsername(userCreds.email)
     .then(user => {
       if (user && bcrypt.compareSync(userCreds.password, user.password)) {
-        const token = auth.generateToken(req.body);
+        const token = auth.generateToken(user);
         res.json({ message: `welcome ${user.username}`, token });
       } else {
         res.status(401).json({ message: "Invalid Username/Password" });
