@@ -41,7 +41,7 @@ router.get("/:journalId/exercises", auth.protected, (req, res, next) => {
 });
 
 // GET SPECIFIC EXERCISE CARD
-router.get("/:journalId/exercises/:id", (req, res, next) => {
+router.get("/:journalId/exercises/:id", auth.protected, (req, res, next) => {
   const { sub } = req.decodedToken;
   const { journalId, id } = req.params;
   db("exercise")
@@ -49,6 +49,21 @@ router.get("/:journalId/exercises/:id", (req, res, next) => {
     .where("exercise.id", id)
     .where("exercise.userId", sub)
     .then(exercise => res.send(exercise))
+    .catch(err => next(err));
+});
+
+// EDIT SPECIFIC EXERCISE CARD
+router.put("/:journalId/exercises/:id", auth.protected, (req, res, next) => {
+  const { sub } = req.decodedToken;
+  const { journalId, id } = req.params;
+  const updatedExercise = req.body;
+  console.log(updatedExercise);
+  db("exercise")
+    .where("exercise.journalId", journalId)
+    .where("exercise.id", id)
+    .where("exercise.userId", sub)
+    .update(updatedExercise)
+    .then(num => res.json(num))
     .catch(err => next(err));
 });
 

@@ -29,8 +29,8 @@ module.exports = {
       .where("exercise.userId", id);
     return { journalsObj, exerciseCards };
   },
-  findSingleWorkoutJournal: (journalId, id) => {
-    return db("journal")
+  findSingleWorkoutJournal: async (journalId, id) => {
+    const singleJournal = await db("journal")
       .select({
         id: "journal.id",
         date: "journal.date",
@@ -38,5 +38,6 @@ module.exports = {
       })
       .where("journal.userId", id)
       .where("journal.id", journalId);
+    return singleJournal;
   }
 };
