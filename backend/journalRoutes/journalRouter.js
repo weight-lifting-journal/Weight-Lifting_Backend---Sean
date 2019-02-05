@@ -28,16 +28,11 @@ router.get("/", auth.protected, (req, res, next) => {
       next(err);
     });
 });
-router.get("/:journalId", auth.protected, (req, res, next) => {
+router.get("/:journalId", auth.protected, async (req, res, next) => {
   const { journalId } = req.params;
-  dbHelper
+  await dbHelper
     .findSingleWorkoutJournal(journalId, req.decodedToken.sub)
-    .then(journal =>
-      res
-        .status(200)
-        .send(journal)
-        .catch(err => next(err))
-    );
+    .then(journal => res.json(journal));
 });
 
 module.exports = router;
