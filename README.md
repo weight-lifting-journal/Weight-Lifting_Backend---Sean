@@ -145,9 +145,9 @@ _example:_
 
 # WORKOUT JOURNAL ROUTES
 
-## GET WORKOUT JOURNALS <a name="get-workouts"></a>
+## GET WORKOUT JOURNALS AND EXERCISE CARDS <a name="get-workouts"></a>
 
-### Retrieves an array of users workouts
+### Retrieves an object with 2 arrays containing users workouts journals and exercise cards
 
 _Method URL: /workouts_
 
@@ -166,58 +166,60 @@ _HTTP method: [GET]_
 > will send back an array of objects like below
 
 ```
-[
-  {
-    "journal": {
-      "id": 1,
-      "date": "Feb 12, 2019",
-      "region": "Upper Body"
-    },
-    "exercises": [
-      {
-        "exerciseId": 1,
-        "journalId" : 1,
-        "name": "bench press",
-        "weight": "200lb",
-        "reps": 5,
-        "sets": 3,
-      },
-      {
-        "exerciseId": 2,
-        "journalId" : 1,
-        "name": "curls",
-        "weight": "60lb",
-        "reps": 10,
-        "sets": 3,
-      }
+{
+    "journalsObj": [
+        {
+            "id": 1,
+            "date": "Feb 12, 2019",
+            "region": "upper body"
+        },
+        {
+            "id": 5,
+            "date": "Feb 13, 2019",
+            "region": "legs"
+        },
+        {
+            "id": 9,
+            "date": "Feb 14, 2019",
+            "region": "legs"
+        },
+        {
+            "id": 13,
+            "date": "Feb 20",
+            "region": "upper body"
+        }
+    ],
+    "exerciseCards": [
+        {
+            "journalId": 1,
+            "name": "bench press",
+            "reps": 12,
+            "sets": 3,
+            "weight": "190lbs"
+        },
+        {
+            "journalId": 1,
+            "name": "curls",
+            "reps": 15,
+            "sets": 3,
+            "weight": "60lbs"
+        },
+        {
+            "journalId": 5,
+            "name": "leg press",
+            "reps": 12,
+            "sets": 3,
+            "weight": "250lbs"
+        },
+        {
+            "journalId": 2,
+            "name": "squats",
+            "reps": 25,
+            "sets": 5,
+            "weight": "150lbs"
+        }
     ]
-  },
-  {
-    "journal": {
-      "id": 2,
-      "date": "Feb 13, 2019",
-      "region": "legs"
-    },
-    "exercises": [
-      {
-      "exerciseId": 3,
-      "journalId" : 2,
-      "name": "leg press",
-      "weight": "280lb",
-      "reps": 7,
-      "sets": 3,
-    },
-    {
-      "exerciseId": 4,
-      "journalId" : 2,
-      "name": "squats",
-      "weight": "180lb",
-      "reps": 12,
-      "sets": 3,
-    }
-    ]
-  }
-]
+}
 ```
 
 ---

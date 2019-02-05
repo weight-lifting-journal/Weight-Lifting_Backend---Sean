@@ -21,10 +21,8 @@ router.post("/", auth.protected, (req, res, next) => {
 router.get("/", auth.protected, (req, res, next) => {
   dbHelper
     .findWorkoutsJournal(req.decodedToken.sub)
-    .then((journalObj, cards) => {
-      console.log(cards);
-
-      res.status(200).json({ ...journalObj, cards });
+    .then(journalsObj => {
+      res.status(200).send(journalsObj);
     })
     .catch(err => {
       next(err);

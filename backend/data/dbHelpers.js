@@ -10,15 +10,16 @@ module.exports = {
       .first();
   },
   findWorkoutsJournal: async id => {
-    const journalObj = await db("journal")
-      // .select({
-      //   id: "journal.id",
-      //   date: "journal.date",
-      //   region: "   journal.region"
-      // })
+    const journalsObj = await db("journal")
+      // return (journalsObj = await db("journal")
+      .select({
+        id: "journal.id",
+        date: "journal.date",
+        region: "   journal.region"
+      })
+      // .innerRightJoin("exercise", "exercise.userId", id)
       .where("journal.userId", id);
-    // .join('')
-    const cards = await db("exercise")
+    const exerciseCards = await db("exercise")
       .select({
         journalId: "journal.id",
         name: "exercise.name",
@@ -28,7 +29,7 @@ module.exports = {
       })
       .join("journal", "journal.id", "exercise.journalId")
       .where("exercise.userId", id);
-    return { journalObj, ...cards };
+    return { journalsObj, exerciseCards };
   },
   // findJournalExercises: id => {
   //   const exercises = db("exercise")
