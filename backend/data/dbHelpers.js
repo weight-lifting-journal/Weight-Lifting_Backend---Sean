@@ -39,5 +39,16 @@ module.exports = {
       .where("journal.userId", id)
       .where("journal.id", journalId);
     return singleJournal;
+  },
+  deleteSingleWorkoutJournal: async (journalId, id) => {
+    return await db("journal")
+      .select({
+        id: "journal.id",
+        date: "journal.date",
+        region: "journal.region"
+      })
+      .where("journal.userId", id)
+      .where("journal.id", journalId)
+      .del();
   }
 };

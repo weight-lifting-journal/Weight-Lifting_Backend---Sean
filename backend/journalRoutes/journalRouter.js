@@ -6,6 +6,7 @@ const auth = require("../middleware/auth");
 
 const router = express.Router();
 
+// POST A NEW JOURNAL
 router.post("/", auth.protected, (req, res, next) => {
   const {
     body: { date, region }
@@ -18,6 +19,7 @@ router.post("/", auth.protected, (req, res, next) => {
     .catch(err => next(err));
 });
 
+// GET JOURNALS
 router.get("/", auth.protected, (req, res, next) => {
   dbHelper
     .findWorkoutsJournal(req.decodedToken.sub)
@@ -28,11 +30,31 @@ router.get("/", auth.protected, (req, res, next) => {
       next(err);
     });
 });
+
+// GET SINGLE JOURNAL
 router.get("/:journalId", auth.protected, async (req, res) => {
   const { journalId } = req.params;
   await dbHelper
     .findSingleWorkoutJournal(journalId, req.decodedToken.sub)
     .then(journal => res.json(journal));
+});
+
+// EDIT SINGLE JOURNAL
+router.put("/:journalId", auth.protected, async (req, res) => {
+  const { journalId } = req.params;
+  const newJournal = req.body;
+  await dbHelper
+    .findSingleWorkoutJournal(journalId, req.decodedToken.sub, newJournal)
+    .then(num => res.json(num));
+});
+
+// DELETE SINGLE JOURNAL
+router.put("/:journalId", auth.protected, async (req, res) => {
+  const { journalId } = req.params;
+  const newJournal = req.body;
+  await dbHelper
+    .findSingleWorkoutJournal(journalId, req.decodedToken.sub, newJournal)
+    .then(num => res.json(num));
 });
 
 module.exports = router;
