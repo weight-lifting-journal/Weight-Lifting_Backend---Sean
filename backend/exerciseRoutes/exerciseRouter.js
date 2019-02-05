@@ -41,7 +41,7 @@ router.get("/:journalId/exercises", auth.protected, (req, res, next) => {
 });
 
 // GET SPECIFIC EXERCISE CARD
-router.get("/:journalId/exercises/:id", (req, res, next) => {
+router.get("/:journalId/exercises/:id", auth.protected, (req, res, next) => {
   const { sub } = req.decodedToken;
   const { journalId, id } = req.params;
   db("exercise")

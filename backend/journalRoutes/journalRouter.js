@@ -28,7 +28,7 @@ router.get("/", auth.protected, (req, res, next) => {
       next(err);
     });
 });
-router.get("/:journalId", auth.protected, async (req, res, next) => {
+router.get("/:journalId", auth.protected, async (req, res) => {
   const { journalId } = req.params;
   await dbHelper
     .findSingleWorkoutJournal(journalId, req.decodedToken.sub)
