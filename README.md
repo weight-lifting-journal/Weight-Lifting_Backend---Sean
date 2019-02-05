@@ -319,7 +319,7 @@ _example:_
 
 ### Response
 
-**200 (OK)**
+**201 (OK)**
 
 > If you successfully create a new workout the endpoint will return an HTTP response with a status code 200 and a body containing the newly created workouts id as shown below.
 
@@ -582,7 +582,7 @@ _example:_
 
 ### Response
 
-**200 (OK)**
+**201 (OK)**
 
 > If you successfully create a new workout the endpoint will return an HTTP response with a status code 200 and a body containing the newly created workouts id as shown below.
 
