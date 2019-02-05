@@ -8,6 +8,6 @@
 
 ## [x] POST for exercise
 
-## [] GET all exercise for given journal /workouts/:journalId/exercises
+## [x] GET all exercise for given journal /workouts/:journalId/exercises
 
 - get single exercise

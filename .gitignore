@@ -62,4 +62,4 @@ typings/
 .next
 
 # dont override db
-# data/*.db3
+data/*.db3
