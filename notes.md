@@ -2,12 +2,12 @@
 
 ## [x] POST for journal
 
-## GET all journals
+## [x] GET all journals
 
 - get single journal
 
-## POST for exercise
+## [x] POST for exercise
 
-## GET all for exercise /workouts/:journalId/exercises
+## [] GET all exercise for given journal /workouts/:journalId/exercises
 
 - get single exercise

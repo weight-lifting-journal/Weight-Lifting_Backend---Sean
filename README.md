@@ -496,6 +496,86 @@ If you are not logged in the endpoint will return an HTTP response with a status
 
 ---
 
+## GET ALL EXERCISE CARDS FOR SPECIFIED JOURNAL
+
+### Gets an array of exercise cards for specified journal
+
+_Method Url: /workouts/:journalId/exercises_
+
+_HTTP method: [GET]_
+
+### Headers
+
+| name          | type   | required | description |
+| ------------- | ------ | -------- | ----------- |
+| Authorization | String | Yes      | token       |
+
+|
+
+### Parameters
+
+| name      | type | required | description            |
+| --------- | ---- | -------- | ---------------------- |
+| journalId | Int  | Yes      | Id of specific journal |
+
+### Response
+
+**200 (OK)**
+
+> If you send a valid workout id with a valid authorization token, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+[
+    {
+        "id": 3,
+        "journalId": 2,
+        "userId": 2,
+        "name": "leg press",
+        "reps": 12,
+        "sets": 3,
+        "weight": "250lbs"
+    },
+    {
+        "id": 4,
+        "journalId": 2,
+        "userId": 2,
+        "name": "military press",
+        "reps": 12,
+        "sets": 3,
+        "weight": "130lbs"
+    },
+    {
+        "id": 5,
+        "journalId": 2,
+        "userId": 2,
+        "name": "squats",
+        "reps": 12,
+        "sets": 3,
+        "weight": "230lbs"
+    },
+    {
+        "id": 13,
+        "journalId": 2,
+        "userId": 1,
+        "name": "squats",
+        "reps": 25,
+        "sets": 5,
+        "weight": "150lbs"
+    }
+]
+```
+
+**404 (Not Found)**
+
+> If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
+
+{
+"err": [],
+"message": "🔍 - Not Found - <resource that was not found>"
+}
+
+---
+
 ## GET SPECIFIC EXERCISE CARD <a name="get-exercise"></a>
 
 ### Gets a exercise card with a specified ID

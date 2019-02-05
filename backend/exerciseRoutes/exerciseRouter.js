@@ -24,6 +24,17 @@ router.post("/:journalId/exercises", auth.protected, (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.get("/", auth.protected, (req, res, next) => {});
+router.get("/:journalId/exercises", auth.protected, (req, res, next) => {
+  const { sub } = req.decodedToken;
+  const { journalId } = req.params;
+  db("exercise")
+    .where("exercise.journalId", journalId)
+    // .findJournalExercises(sub)
+    .then(exercises => {
+      console.log(exercises);
+      res.send(exercises);
+    })
+    .catch(err => next(err));
+});
 
 module.exports = router;
