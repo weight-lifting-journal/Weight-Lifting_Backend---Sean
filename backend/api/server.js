@@ -12,7 +12,7 @@ configMiddleware(server);
 
 // sanity check
 server.get("/", (req, res) => {
-  res.send("👋🌎🌍🌏, root dir sanity check");
+  res.json({ message: "👋🌎🌍🌏, root dir sanity check" });
 });
 
 server.use("/users", userRouter);

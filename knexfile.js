@@ -16,7 +16,14 @@ module.exports = {
   },
   test: {
     client: "sqlite3",
-    connection: "./backend/data/users-test.db3"
+    connection: "./backend/data/users-test.db3",
+    useNullAsDefault: true,
+    seeds: {
+      directory: "./backend/data/seeds"
+    },
+    migrations: {
+      directory: "./backend/data/migrations"
+    }
   },
   production: {
     client: "sqlite3",

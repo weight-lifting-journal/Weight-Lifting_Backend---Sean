@@ -19,6 +19,7 @@ module.exports = {
       .where("journal.userId", id);
     const exerciseCards = await db("exercise")
       .select({
+        id: "exercise.id",
         journalId: "journal.id",
         name: "exercise.name",
         reps: "exercise.reps",
