@@ -136,8 +136,8 @@ _example:_
 
 ```
 {
-  "error": true,
-  "message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 ```
 
@@ -191,6 +191,7 @@ _HTTP method: [GET]_
     ],
     "exerciseCards": [
         {
+            "id": 1,
             "journalId": 1,
             "name": "bench press",
             "reps": 12,
@@ -198,6 +199,7 @@ _HTTP method: [GET]_
             "weight": "190lbs"
         },
         {
+            "id": 2,
             "journalId": 1,
             "name": "curls",
             "reps": 15,
@@ -205,6 +207,7 @@ _HTTP method: [GET]_
             "weight": "60lbs"
         },
         {
+            "id": 3,
             "journalId": 5,
             "name": "leg press",
             "reps": 12,
@@ -212,7 +215,8 @@ _HTTP method: [GET]_
             "weight": "250lbs"
         },
         {
-            "journalId": 2,
+            "id": 4,
+            "journalId": 9,
             "name": "squats",
             "reps": 25,
             "sets": 5,
@@ -283,8 +287,8 @@ _HTTP method: [GET]_
 > If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
 
 {
-"error": true,
-"message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 
 ---
@@ -433,8 +437,8 @@ _HTTP method: [PUT]_
 
 ```
 {
-  "error": true,
-  "message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 ```
 
@@ -489,8 +493,8 @@ If you are not logged in the endpoint will return an HTTP response with a status
 
 ```
 {
-  "error": true,
-  "message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 ```
 
@@ -570,8 +574,8 @@ _HTTP method: [GET]_
 > If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
 
 {
-"err": [],
-"message": "🔍 - Not Found - <resource that was not found>"
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 
 ---
@@ -620,8 +624,8 @@ _HTTP method: [GET]_
 > If you pass in an id that does not match one in the database, the endpoint will return an HTTP response with a status code 404 and a body as below.
 
 {
-"error": true,
-"message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 
 ---
@@ -781,8 +785,8 @@ _example:_
 
 ```
 {
-  "error": true,
-  "message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 ```
 
@@ -837,8 +841,8 @@ If you are not logged in the endpoint will return an HTTP response with a status
 
 ```
 {
-  "error": true,
-  "message": "The requested content does not exist."
+"message": "🔍 - Not Found - <resource that was not found>",
+"stack": "🥞"
 }
 ```
 

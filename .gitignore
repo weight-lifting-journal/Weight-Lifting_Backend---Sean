@@ -63,3 +63,4 @@ typings/
 
 # dont override db
 data/*.db3
+
