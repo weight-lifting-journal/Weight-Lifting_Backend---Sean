@@ -263,7 +263,7 @@ _HTTP method: [GET]_
     "region": "upper body",
     "exercises": [
       {
-        "exerciseId": 1,
+        "id": 1,
         "journalId": 1,
         "name": "bench press",
         "weight": "200lb",
@@ -271,7 +271,7 @@ _HTTP method: [GET]_
         "sets": 3,
      },
       {
-        "exerciseId": 2,
+        "id": 2,
         "journalId": 1,
         "name": "curls",
         "weight": "60lb",
@@ -584,7 +584,7 @@ _HTTP method: [GET]_
 
 ### Gets a exercise card with a specified ID
 
-_Method Url: /workouts/:journalId/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:id_
 
 _HTTP method: [GET]_
 
@@ -598,9 +598,10 @@ _HTTP method: [GET]_
 
 ### Parameters
 
-| name       | type | required | description            |
-| ---------- | ---- | -------- | ---------------------- |
-| exerciseId | Int  | Yes      | Id of specific workout |
+| name      | type | required | description            |
+| --------- | ---- | -------- | ---------------------- |
+| journalId | Int  | Yes      | Id of specific workout |
+| id        | Int  | Yes      | Id of specific workout |
 
 ### Response
 
@@ -610,7 +611,7 @@ _HTTP method: [GET]_
 
 ```
       {
-        "exerciseId": 1,
+        "id": 1,
         "journalId": 1,
         "name": "bench press",
         "weight": "200lb",
@@ -706,7 +707,7 @@ _example:_
 
 ### Edits one or more details of a specific exercise card created by the user.
 
-_Method Url: /workouts/:journalId/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:id_
 
 _HTTP method: [PUT]_
 
@@ -719,9 +720,10 @@ _HTTP method: [PUT]_
 
 ### Parameters
 
-| name       | type | required | description            |
-| ---------- | ---- | -------- | ---------------------- |
-| exerciseId | Int  | Yes      | Id of specific workout |
+| name      | type | required | description            |
+| --------- | ---- | -------- | ---------------------- |
+| journalId | Int  | Yes      | Id of specific workout |
+| id        | Int  | Yes      | Id of specific workout |
 
 ### Body
 
@@ -796,7 +798,7 @@ _example:_
 
 ### Deletes workout journal with specific id.
 
-_Method Url: /workouts/:journalId/exercises/:exerciseId_
+_Method Url: /workouts/:journalId/exercises/:id_
 
 _HTTP method: [DELETE]_
 
@@ -808,9 +810,10 @@ _HTTP method: [DELETE]_
 
 ### Parameters
 
-| name       | type | required | description             |
-| ---------- | ---- | -------- | ----------------------- |
-| exerciseId | Int  | Yes      | Id of specific exercise |
+| name      | type | required | description             |
+| --------- | ---- | -------- | ----------------------- |
+| journalId | Int  | Yes      | Id of specific exercise |
+| id        | Int  | Yes      | Id of specific workout  |
 
 ### Response
 
