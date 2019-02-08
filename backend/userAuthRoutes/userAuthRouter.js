@@ -12,7 +12,9 @@ router.post("/register", (req, res, next) => {
   user.password = bcrypt.hashSync(user.password, 12);
   db.insert(user)
     .then(userId => {
-      const token = auth.generateToken({ id: userId, ...req.body });
+      console.log("USER: ", userId[0], "BODY", req.body);
+
+      const token = auth.generateToken({ id: userId[0], ...req.body });
       res.status(201).json({ message: `welcome ${user.username}`, token });
     })
     .catch(err => {
@@ -29,6 +31,8 @@ router.post("/login", (req, res, next) => {
   const userCreds = req.body;
   db.findUsername(userCreds.email)
     .then(user => {
+      console.log("LOGIN USER", user);
+
       if (user && bcrypt.compareSync(userCreds.password, user.password)) {
         const token = auth.generateToken(user);
         res.json({ message: `welcome ${user.username}`, token });
