@@ -7,6 +7,9 @@ module.exports = {
       filename: "./backend/data/users.db3"
     },
     useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, cb) => conn.run("PRAGMA foreign_keys = ON", cb)
+    },
     migrations: {
       directory: "./backend/data/migrations"
     },
@@ -18,6 +21,9 @@ module.exports = {
     client: "sqlite3",
     connection: "./backend/data/users-test.db3",
     useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, cb) => conn.run("PRAGMA foreign_keys = ON", cb)
+    },
     seeds: {
       directory: "./backend/data/seeds"
     },
